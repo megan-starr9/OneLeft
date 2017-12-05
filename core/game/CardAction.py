@@ -1,13 +1,10 @@
 from core.game.ActionType import *
 from core.game.Card import *
 
+
 class CardAction:
     def __init__(self, action, card):
-        """
-        :type action:
-        :type card: Card
-        """
-        self.action = Card
+        self.action = action
         self.card = card
 
     @property
