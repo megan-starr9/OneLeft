@@ -2,6 +2,7 @@ from enum import Enum
 
 
 class CardType(Enum):
+    ZERO = 'zero'
     ONE = 'one'
     TWO = 'two'
     THREE = 'three'
@@ -14,5 +15,5 @@ class CardType(Enum):
     DRAW_TWO = 'draw_two'
     REVERSE = 'reverse'
     SKIP = 'skip'
-    WILD = 'wild'
     WILD_DRAW_FOUR = 'draw_four'
+    WILD = 'wild'

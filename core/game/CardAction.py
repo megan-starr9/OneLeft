@@ -4,13 +4,13 @@ from core.game.Card import *
 
 class CardAction:
     def __init__(self, action, card):
-        self.action = action
-        self.card = card
+        self._action = action
+        self._card = card
 
     @property
     def action(self):
-        return self.__action
+        return self._action
 
     @property
     def card(self):
-        return self.__card
+        return self._card

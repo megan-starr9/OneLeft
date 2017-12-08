@@ -1,5 +1,6 @@
 from core.game.IPlayer import IPlayer
 from core.game.CardAction import CardAction
+from core.game.ActionType import ActionType
 
 
 class Player(IPlayer):
@@ -7,4 +8,5 @@ class Player(IPlayer):
         return 'My Cool Name'
 
     def take_turn(self) -> CardAction:
-        return ''
+        card = self.get_game_helper().get_hand()[0]
+        return CardAction(ActionType.PLAY, card)
