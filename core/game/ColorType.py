@@ -1,3 +1,6 @@
+"""
+COLORType is an enum representing all colors that exist in the game.
+"""
 from enum import Enum
 
 
