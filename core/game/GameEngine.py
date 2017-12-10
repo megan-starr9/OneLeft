@@ -42,24 +42,39 @@ class GameEngine:
         return PlayerGameHelper(hand, last_card_played, card_pile, deck_count, opp_hand_count)
 
     def start(self):
-        current_round: int = 1
+        current_round: int = 0
 
         while current_round <= self._roundsPerMatch:
+            # At the beginning of every round, get a fresh list of players and resent round variables.
             round_players = self.__get_game_players(self._players)
+            self._deck = GameEngineHelper.create_game_deck()
+            current_round += 1
             round_won = False
+            round_winner = None
+            print('- Round {0}'.format(current_round))
+
+            # Keep playing the same round until a winner is chosen.
             while not round_won:
-                print('- Round {0}'.format(current_round))
                 active_player: GamePlayer = None
                 last_card_played = self.__draw_cards(1)
+
+                # Main game loop starts here, loop through each player until a player has 0 cards.
                 for game_player in round_players:
-                    active_player = game_player
-                    active_player_game_helper = self.__create_player_game_helper(active_player, last_card_played)
+                    active_player = game_player.player
+                    active_player_game_helper = self.__create_player_game_helper(game_player, last_card_played)
                     game_player.player.set_game_helper(active_player_game_helper)
-                    game_player.player.take_turn()
+                    player_action = game_player.player.take_turn()
+                    print('{} uses action {}'.format(active_player.get_player_name(), player_action.action))
+                    print('{}'.format(player_action.card.get_card_text()))
+
+                    # Until game loop is actually implemented, remove a card from the player's hand.
                     game_player.hand.pop()
+
+                    # After the card has been played, if that player has no more cards, they win the round.
                     if len(game_player.hand) <= 0:
                         round_won = True
-                print('{} won the round!'.format(active_player.player.get_player_name()))
-                current_round += 1
-                self._deck = GameEngineHelper.create_game_deck()
+                        print('{} won the round!'.format(active_player.get_player_name()))
+                        round_winner = active_player
+
+        # After all rounds have been played, handle any Match over logic here
         print('Match is over!')

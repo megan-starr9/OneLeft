@@ -1,3 +1,10 @@
+"""
+The Card represents a card object from the game. Every card contains a color
+along with a type. Refer to CardType and ColorType for full descriptions
+of each. This class is meant to be a read-only class, meaning once the object
+is created, it cannot be modified.
+"""
+
 from core.game.CardType import CardType
 from core.game.ColorType import ColorType
 
@@ -14,3 +21,6 @@ class Card:
     @property
     def color_type(self) -> ColorType:
         return self._color_type
+
+    def get_card_text(self) -> str:
+        return '{} {}'.format(self._color_type, self.color_type)
