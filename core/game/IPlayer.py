@@ -1,6 +1,3 @@
-from core.game.CardAction import CardAction
-from core.game.PlayerGameHelper import PlayerGameHelper
-
 
 class IPlayer:
     """
@@ -14,31 +11,31 @@ class IPlayer:
       take_turn()
     """
     def __init__(self):
-        self._game_helper: PlayerGameHelper = None
+        self._game_helper = None
 
     """
     The extending class is expected to implement def get_player_name.
     Method should return a string to display as the AIs name for logging.
     """
-    def get_player_name(self) -> str:
+    def get_player_name(self):
         pass
 
     """
     The extending class is expected to implement take_turn.
     This method is called by the game engine to decide what card the AI
-    will play for its turn. 
+    will play for its turn.
     """
-    def take_turn(self) -> CardAction:
+    def take_turn(self):
         pass
 
     """
     set_game_helper is already implemented and should not be modified.
-    This method will be called by the game engine before calling the 
+    This method will be called by the game engine before calling the
     take_turn method. This gives the extending class a reference to
     a PlayerGameHelper to use for deciding what card to play during
     the take_turn method.
     """
-    def set_game_helper(self, game_helper: PlayerGameHelper):
+    def set_game_helper(self, game_helper):
         self._game_helper = game_helper
 
     """
@@ -46,5 +43,5 @@ class IPlayer:
     This is a helper method to be used during the take_turn method as it
     provides access into some of the game's current state.
     """
-    def get_game_helper(self) -> PlayerGameHelper:
+    def get_game_helper(self):
         return self._game_helper

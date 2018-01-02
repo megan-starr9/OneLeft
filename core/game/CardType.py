@@ -22,13 +22,13 @@ class CardType(Enum):
     NINE = 'nine'
 
     """
-    DRAW_TWO is an action card that will force the next player to draw two additional cards. 
+    DRAW_TWO is an action card that will force the next player to draw two additional cards.
     """
     DRAW_TWO = 'draw_two'
 
     """
     REVERSE is an action card that will change the order in which players take their turn.
-    When playing a 2 player game, the REVERSE acts like a skip. 
+    When playing a 2 player game, the REVERSE acts like a skip.
     """
     REVERSE = 'reverse'
 
