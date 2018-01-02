@@ -10,7 +10,7 @@ from tests.PlayerTests import runPlayerSuite
 def main():
     players = [Player(), RandomPlayer()]
 
-    game_engine = GameEngine(players, 10)
+    game_engine = GameEngine(players, 0)
     game_engine.start()
 
 def main_test():

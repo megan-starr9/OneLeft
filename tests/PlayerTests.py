@@ -8,7 +8,7 @@
 
 from core.game.GameEngineHelper import GameEngineHelper
 from core.game.PlayerGameHelper import PlayerGameHelper
-from players.RandomPlayer import RandomPlayer
+from Player import Player
 from core.game.IPlayer import IPlayer
 from core.game.CardAction import CardAction
 from core.game.Card import Card
@@ -23,7 +23,7 @@ class PlayerTests(unittest.TestCase):
     Ensure name of string type is returned
     """
     def test_name(self):
-        player = RandomPlayer()
+        player = Player()
         self.assertTrue(type(player.get_player_name()) == str)
 
     """
@@ -38,7 +38,7 @@ class PlayerTests(unittest.TestCase):
         for n in range(10):
             hand.append(cards.pop(0))
 
-        player = RandomPlayer()
+        player = Player()
         for card in cards:
             print('Testing card - {0} {1}', card.color_type, card.card_type)
             player.set_game_helper(PlayerGameHelper(hand, card, cards, cards.count, 5))

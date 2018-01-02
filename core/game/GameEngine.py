@@ -168,8 +168,8 @@ class GameEngine:
                             print('Player drew a card and skipped their turn. Hand is now: {0}', game_player.hand)
                             continue
 
-                    print('{} uses action {}'.format(active_player.get_player_name(), player_action.action))
-                    print('{}'.format(player_action.card.get_card_text()))
+                    print('{0} uses action {1}'.format(active_player.get_player_name(), player_action.action))
+                    print('{0}'.format(player_action.card.get_card_text()))
 
                     # Until game loop is actually implemented, remove a card from the player's hand.
                     game_player.hand.pop()

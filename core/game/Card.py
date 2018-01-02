@@ -19,4 +19,4 @@ class Card:
         return self._color_type
 
     def get_card_text(self):
-        return '{} {}'.format(self._color_type, self.color_type)
+        return '{0} {1}'.format(self._color_type, self.card_type)
